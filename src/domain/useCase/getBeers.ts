@@ -5,6 +5,6 @@ export class getBeers {
     constructor(private readonly punkClient: punkClient) {}
 
     public async execute(): Promise<Beer[]> {
-        return [];
+        return this.punkClient.getBeers();
     }
 }

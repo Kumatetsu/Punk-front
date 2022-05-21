@@ -1,8 +1,8 @@
 import { punkInMemoryClient } from "@/infrastructure/stubs/punkInMemoryClient";
 import { describe, expect, it } from "vitest";
-import { Beer } from "../entities/Beer";
-import type { punkClient } from "../ports/punkClient";
-import { getBeers } from "../useCase/getBeers";
+import { Beer } from "../../entities/Beer";
+import type { punkClient } from "../../ports/punkClient";
+import { getBeers } from "../../useCase/getBeers";
 
 const getPunkClient = () => new punkInMemoryClient();
 const getBeersUseCase = (punkClient: punkClient) => new getBeers(punkClient);
