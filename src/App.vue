@@ -1,6 +1,14 @@
-<script setup lang="ts">
+<script lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import HelloWorld from "@/presentation/components/HelloWorld.vue";
+import { defineComponent } from "vue";
+import { dependenciesLocator } from "./domain/di/dependenciesLocator";
+
+export default defineComponent({
+  provide: {
+    beerList: dependenciesLocator.provideBeerList(),
+  },
+})
 </script>
 
 <template>
@@ -13,6 +21,7 @@ import HelloWorld from "@/presentation/components/HelloWorld.vue";
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/beers">Beers</RouterLink>
       </nav>
     </div>
   </header>
