@@ -1,9 +1,16 @@
 import { getBeers } from "@/domain/useCase/getBeers";
-import { describe, it } from "vitest";
+import { punkClient } from "@/infrastructure/http/punkClient";
+import { describe, expect, it, vi } from "vitest";
+import { mockBeer} from "../utils/mockService";
 
 describe('list beers use case', () => {
     it('should list empty beers', async () => {
-        const useCase = new getBeers(new PunkClient());
-        expect(await useCase.execute()).toStrictEqual([]);
+        /** TODO: user msw to catch http request */
+        const spy = vi.spyOn(global, 'fetch')
+            .mockImplementation(() => Promise.resolve(new Response(JSON.stringify([mockBeer]))));
+        const useCase = new getBeers(new punkClient());
+        expect(await useCase.execute()).toStrictEqual([mockBeer]);
+
+        expect(spy).toHaveBeenCalledTimes(1);
     });
 })
