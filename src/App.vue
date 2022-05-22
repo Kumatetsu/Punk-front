@@ -8,6 +8,11 @@ export default defineComponent({
   provide: {
     beerList: dependenciesLocator.provideBeerList(),
   },
+  components: {
+    HelloWorld,
+    RouterLink,
+    RouterView,
+  },
 })
 </script>
 
