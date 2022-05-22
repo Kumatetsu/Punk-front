@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/presentation/views/HomeView.vue";
+import { BeerContract } from "@/infrastructure/http/punkTypes";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,15 @@ const router = createRouter({
       name: "beers",
       component: () => import("@/presentation/views/BeerListView.vue"),
     },
+    {
+      path: "/beers/:id",
+      name: "beer",
+      component: () => import("@/presentation/views/BeerView.vue"),
+      props: (route) => ({
+        beer: BeerContract,
+        ...route.params,
+      })
+    }
   ],
 });
 

@@ -18,7 +18,7 @@ export class BeerContract {
     public boil_volume: Object,
     public method: Object,
     public ingredients: Object,
-    public food_pairing: Array<string>,
+    public food_pairing: Object,
     public brewers_tips: string,
     public contributed_by: string
   ) {}
