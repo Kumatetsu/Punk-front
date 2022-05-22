@@ -7,6 +7,12 @@ import { dependenciesLocator } from "./domain/di/dependenciesLocator";
 export default defineComponent({
   provide: {
     beerList: dependenciesLocator.provideBeerList(),
+    beer: dependenciesLocator.provideBeer(),
+  },
+  components: {
+    HelloWorld,
+    RouterLink,
+    RouterView,
   },
 })
 </script>
