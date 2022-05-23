@@ -9,9 +9,13 @@ export default defineComponent({
         return {
         }
     },
+    beforeRouteUpdate(to, from, next) {
+        next();
+    },
     setup() {
         const router = useRoute();
         const adapter = inject<beerAdapter>("beer") as beerAdapter;
+        adapter.clearBeer();
         adapter.loadBeer(+router.params.id);
         const state = useAdapterState(adapter);
         return { adapter, state };

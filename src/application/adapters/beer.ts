@@ -19,4 +19,8 @@ export class beerAdapter extends adapterListener<beerState>{
         const beer = await this.getBeerUseCase.execute(id);
         this.changeState({...this.state, beer: beer[0]});
     }
+
+    public clearBeer = () => {
+        this.changeState({...this.state, beer: undefined});
+    }
 }

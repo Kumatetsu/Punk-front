@@ -13,12 +13,7 @@ export default defineComponent({
     },
     methods: {
         goToBeer(beer: BeerContract) {
-            this.$router.push({
-                name: 'beer',
-                params: {
-                    id: beer.id,
-                }
-            });
+            this.$router.push({ name: 'beer', params: { id: beer.id } });
         },
     },
     setup() {

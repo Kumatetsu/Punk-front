@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "@/presentation/views/HomeView.vue";
 import { BeerContract } from "@/infrastructure/http/punkTypes";
 
 const router = createRouter({
@@ -7,8 +6,8 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: HomeView,
+      name: "beers",
+      component: () => import("@/presentation/views/BeerListView.vue"),
     },
     {
       path: "/about",
@@ -17,11 +16,6 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import("@/presentation/views/AboutView.vue"),
-    },
-    {
-      path: "/beers",
-      name: "beers",
-      component: () => import("@/presentation/views/BeerListView.vue"),
     },
     {
       path: "/beers/:id",
